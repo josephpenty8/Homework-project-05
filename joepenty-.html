@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Website</title>
+    <style>
+      /* Basic styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+
+      header {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      main {
+        padding: 20px;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .box {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: center;
+      }
+
+      .box img {
+        width: 100%;
+        max-height: 200px;
+        object-fit: cover;
+      }
+
+      footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+      }
+
+      /* Media Queries */
+
+      /* Tablet View */
+      @media (min-width: 772px) {
+        .content {
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
+
+        .box {
+          width: 45%;
+        }
+
+        .box img {
+          max-height: 30vh;
+        }
+      }
+
+      /* Large Screen View */
+      @media (min-width: 998px) {
+        .box {
+          width: 30%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Responsive Website</h1>
+    </header>
+    <main>
+      <section class="content">
+        <div class="box">
+          <img
+            src="https://cdn.pixabay.com/photo/2016/12/19/08/39/mobile-phone-1917737_640.jpg"
+            alt="Mobile Phone"
+          />
+          <p>Mobile Phone</p>
+        </div>
+        <div class="box">
+          <img
+            src="https://cdn.pixabay.com/photo/2016/09/22/10/43/eye-1686932_640.jpg"
+            alt="Eye"
+          />
+          <p>Eye</p>
+        </div>
+        <div class="box">
+          <img
+            src="https://cdn.pixabay.com/photo/2016/10/13/16/23/genoa-1738159_640.jpg"
+            alt="Genoa"
+          />
+          <p>Genoa</p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2024 Responsive Website. All rights reserved.</p>
+    </footer>
+    <script>
+      // This script will ensure all images are loaded before applying the layout
+      window.onload = function () {
+        const images = document.querySelectorAll(".box img");
+
+        images.forEach((image) => {
+          image.addEventListener("load", () => {
+            console.log(`Image loaded: ${image.alt}`);
+          });
+        });
+      };
+    </script>
+  </body>
+</html>
